@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abisola's Birthday Wish Wall 🎂</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="floating-hearts" aria-hidden="true">
+        💕 ✨ 💖 🎈 💕 ✨
+    </div>
+
+    <main class="birthday-container">
+
+        <div class="emoji">🎂</div>
+
+        <h1>It's My Birthday! 🎉</h1>
+
+        <p class="subtitle">
+            Welcome to my little birthday corner 💕
+        </p>
+
+        <p class="intro">
+            I'm collecting beautiful messages, virtual hugs, and birthday love
+            from my favorite people. 🥰
+        </p>
+
+
+        <!-- REACTIONS -->
+
+        <div class="reactions">
+
+            <button type="button" class="reaction" id="hugButton">
+                🤗
+                <span>Hug</span>
+            </button>
+
+            <button type="button" class="reaction" id="loveButton">
+                ❤️
+                <span>Love</span>
+            </button>
+
+            <button type="button" class="reaction" id="partyButton">
+                🎉
+                <span>Celebrate</span>
+            </button>
+
+        </div>
+
+
+        <!-- ONE BUTTON THAT OPENS THE FORM -->
+
+        <button
+            type="button"
+            id="wishButton"
+            class="send-button"
+        >
+            💌 Send Me a Birthday Wish
+        </button>
+
+
+        <!-- FLOATING FORM -->
+
+        <div
+            id="wishFormContainer"
+            class="wish-form-container"
+            aria-hidden="true"
+        >
+
+            <div class="wish-form">
+
+                <button
+                    type="button"
+                    id="closeForm"
+                    class="close-button"
+                    aria-label="Close birthday wish form"
+                >
+                    ×
+                </button>
+
+                <h2>💌 Send Some Birthday Love</h2>
+
+                <p>
+                    Leave me a message I'll remember. 💕
+                </p>
+
+                <form id="wishForm">
+
+                    <input
+                        type="text"
+                        id="nameInput"
+                        class="input-field"
+                        placeholder="Your name"
+                        maxlength="100"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <textarea
+                        id="wishInput"
+                        class="input-field"
+                        placeholder="Write your birthday wish..."
+                        maxlength="500"
+                        rows="5"
+                        required
+                    ></textarea>
+
+                    <button
+                        id="submitWish"
+                        class="send-button"
+                        type="submit"
+                    >
+                        💕 Send Birthday Love
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- BIRTHDAY LOVE WALL -->
+
+        <section class="messages-section">
+
+            <h2>💌 Birthday Love Wall</h2>
+
+            <div id="wishContainer">
+                <!-- Wishes from the database appear here -->
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
+
