@@ -1,10 +1,19 @@
-import os
 
+import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
+# Load environment variables from .env
+load_dotenv()
+
+# Get Neon database connection string
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL is missing. Check your .env file.")
+
+# Create database connection
 engine = create_engine(DATABASE_URL)
 
 SessionLocal = sessionmaker(

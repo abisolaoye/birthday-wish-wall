@@ -725,5 +725,36 @@ h1 {
         top: 15px;
         width: auto;
     }
+
+
+
+    /* Birthday Photo Gallery */
+
+.photo-gallery {
+    margin: 35px 0;
+    } 
+
+.photo-gallery h2 {
+    margin-bottom: 20px;
+    }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    }
+
+.gallery-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    }
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
 }
 

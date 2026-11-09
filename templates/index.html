@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Abisola's Birthday Wish Wall 🎂</title>
+    <title>{{ profile.name }}'s Birthday Wish Wall 🎂</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body>
-
+<body data-birthday-name="{{ profile.name }}" data-api-base="/birthday/{{ profile.slug }}">
     <div class="floating-hearts" aria-hidden="true">
         💕 ✨ 💖 🎈 💕 ✨
     </div>
@@ -28,17 +27,45 @@
 
         <div class="emoji">🎂</div>
 
-        <h1>It's My Birthday! 🎉</h1>
+        <h1>It's {{ profile.name }}'s Birthday! 🎉</h1>
 
         <p class="subtitle">
-            Welcome to my little birthday corner 💕
+            Welcome to {{ profile.name }}'s little birthday corner 💕
         </p>
 
         <p class="intro">
-            I'm collecting beautiful messages, virtual hugs, and birthday love
-            from my favorite people. 🥰
+            {{ profile.welcome_message or
+            "I'm collecting beautiful messages, virtual hugs, and birthday love from my favorite people. 🥰" }}
         </p>
 
+        <!-- FAITH'S PHOTO GALLERY -->
+
+        {% if profile.slug == "faith" %}
+        <section class="photo-gallery">
+
+            <h2>📸 Beautiful Memories of Faith</h2>
+
+            <div class="gallery-grid">
+
+                <img
+                    src="/static/images/faith/photo1.jpg"
+                    alt="Faith's birthday memory"
+                >
+
+                <img
+                    src="/static/images/faith/photo2.jpg"
+                    alt="Faith's birthday memory"
+                >
+
+                <img
+                    src="/static/images/faith/photo3.jpg"
+                    alt="Faith's birthday memory"
+                >
+
+            </div>
+
+        </section>
+        {% endif %}
 
         <!-- REACTIONS -->
 
@@ -61,7 +88,6 @@
 
         </div>
 
-
         <!-- ONE BUTTON THAT OPENS THE FORM -->
 
         <button
@@ -71,7 +97,6 @@
         >
             💌 Send Me a Birthday Wish
         </button>
-
 
         <!-- FLOATING FORM -->
 
@@ -95,7 +120,7 @@
                 <h2>💌 Send Some Birthday Love</h2>
 
                 <p>
-                    Leave me a message I'll remember. 💕
+                    Leave {{ profile.name }} a message I'll remember. 💕
                 </p>
 
                 <form id="wishForm">
@@ -133,7 +158,6 @@
 
         </div>
 
-
         <!-- BIRTHDAY LOVE WALL -->
 
         <section class="messages-section">
@@ -148,9 +172,7 @@
 
     </main>
 
-
     <script src="/static/script.js"></script>
 
 </body>
 </html>
-

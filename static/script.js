@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+    
+    const birthdayName = document.body.dataset.birthdayName;
+    const apiBase = document.body.dataset.apiBase;
     const wishForm = document.getElementById("wishForm");
     const wishButton = document.getElementById("wishButton");
     const wishFormContainer =
@@ -98,8 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             try {
 
-                const response = await fetch(
-                    "/wishes",
+                const response = await fetch(`${apiBase}/wishes`, 
                     {
                         method: "POST",
 
@@ -201,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
 
             const response =
-                await fetch("/wishes");
+                await fetch(`${apiBase}/wishes`);
 
             if (!response.ok) {
                 throw new Error(
@@ -520,7 +521,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function () {
 
             showReaction(
-                "Abisola received a virtual hug!",
+                `${birthdayName} received a virtual hug!`,
                 "🤗"
             );
 
@@ -533,7 +534,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function () {
 
             showReaction(
-                "Abisola received some birthday love!",
+                `${birthdayName} received some birthday love!`,
                 "❤️"
             );
 
@@ -546,7 +547,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function () {
 
             showReaction(
-                "Let's celebrate Abisola!",
+                `Let's celebrate ${birthdayName}!`,
                 "🎉"
             );
 
